@@ -10,7 +10,7 @@ public class MainApp2 {
         p=te;
 
         printDetails(p);
-
+        System.out.println(te);
     }
 
     public static void printDetails(Person p){
