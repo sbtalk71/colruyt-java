@@ -1,6 +1,6 @@
 package com.demo.interfaces;
 
-public class IBMDB2 implements MyConnection,MyNewConnection{
+public class IBMDB2 implements MyNewConnection{
 
     @Override
     public void getConnection() {
