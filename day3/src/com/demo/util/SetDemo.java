@@ -2,6 +2,7 @@ package com.demo.util;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.TreeSet;
 
 public class SetDemo {
@@ -21,5 +22,17 @@ public class SetDemo {
         System.out.println("No of entries : "+nameSet.size());
         System.out.println("Is Suman present? "+nameSet.contains("Suman"));
         System.out.println(nameSet);
+
+
+        Iterator<String> itr = nameSet.iterator();
+
+        while(itr.hasNext()){
+            String name=itr.next();
+            System.out.println(name+":"+name.length());
+        }
+
+        for(String name:nameSet){
+            System.out.println(name+":"+name.length());
+        }
     }
 }

@@ -1,6 +1,8 @@
 package com.demo.util;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Iterator;
 
 public class ListDemo {
@@ -31,5 +33,14 @@ public class ListDemo {
         for(String name:list){
             System.out.println(name+":"+name.length());
         }
+
+        Collections.sort(list,new MyListSorter());
+        System.out.println(list);
+    }
+}
+class MyListSorter implements Comparator<String>{
+    @Override
+    public int compare(String s1, String s2) {
+        return s2.compareTo(s1);
     }
 }
