@@ -1,6 +1,7 @@
 package com.demo.util.app;
 
 import java.util.HashMap;
+import java.util.Set;
 
 public class ShoppingCart {
 private HashMap<String, Integer> cart= new HashMap<>();
@@ -20,7 +21,10 @@ private HashMap<String, Integer> cart= new HashMap<>();
 
    public void displayCartItems() {
 
-        System.out.println(cart);
+       Set<String> items=cart.keySet();
+       for (String item:items) {
+           System.out.println(item+" : "+cart.get(item));
+       }
 //prints all the items with qty
 
     }

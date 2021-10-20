@@ -4,8 +4,8 @@ import java.util.*;
 
 public class EmpDatabaseAppWIthMap {
     public static void main(String[] args) {
-        //HashMap<Integer,Emp> empDB=new HashMap<>();
-        Hashtable<Integer,Emp> empDB=new Hashtable<>();
+        HashMap<Integer,Emp> empDB=new HashMap<>();
+       // Hashtable<Integer,Emp> empDB=new Hashtable<>();
         empDB.put(100,new Emp(100, "Shantanu", "Hyderabad", 56000));
         empDB.put(101,new Emp(101, "Karan", "Mumbai", 76000));
         empDB.put(102,new Emp(102, "Suman", "Bangalore", 59000));

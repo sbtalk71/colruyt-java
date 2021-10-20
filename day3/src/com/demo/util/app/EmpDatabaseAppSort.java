@@ -17,6 +17,7 @@ public class EmpDatabaseAppSort {
         Collections.sort(empList, new Comparator<Emp>() {
             @Override
             public int compare(Emp e1, Emp e2) {
+                System.out.println("Compare called...");
                // return e2.getEmpId()-e1.getEmpId();
                 Double d = new Double(e2.getSalary()-e1.getSalary());
                 return d.intValue();
