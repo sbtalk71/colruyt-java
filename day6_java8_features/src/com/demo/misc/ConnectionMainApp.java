@@ -9,6 +9,7 @@ public class ConnectionMainApp {
             MyConnection conn=connOPt.get();
             conn.getConnection();
             System.out.println(conn.getDBInfo());
+            conn.getProductInfo(); //default method
         }
     }
 }
