@@ -1,0 +1,15 @@
+<?xml version = "1.0"?>
+<employees>
+    <employee doj="2001-10-20">
+        <emp-id>100</emp-id>
+        <name>Shantanu</name>
+        <city>Hyderabad</city>
+        <salary>60000</salary>
+    </employee>
+    <employee doj="2002-10-20">
+        <emp-id>100</emp-id>
+        <name>Ramu</name>
+        <city>Bangalore</city>
+        <salary>90000</salary>
+    </employee>
+</employees>
