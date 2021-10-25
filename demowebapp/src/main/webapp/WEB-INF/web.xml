@@ -8,9 +8,20 @@
     <servlet-name>demo</servlet-name>
     <servlet-class>com.demo.web.DemoServlet</servlet-class>
 </servlet>
-
+    <servlet>
+        <servlet-name>http-demo</servlet-name>
+        <servlet-class>com.demo.web.MyHttpServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>demo</servlet-name>
         <url-pattern>/test</url-pattern>
+        <url-pattern>/test2</url-pattern>
+
+
+        <!--/test -demo-com.demo.web.DemoServlet -->
+    </servlet-mapping>
+    <servlet-mapping>
+    <servlet-name>http-demo</servlet-name>
+    <url-pattern>/httpDemo</url-pattern>
     </servlet-mapping>
 </web-app>
