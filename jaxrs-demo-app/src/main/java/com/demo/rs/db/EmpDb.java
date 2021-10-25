@@ -4,8 +4,10 @@ import java.util.HashMap;
 
 import com.demo.rs.entity.Emp;
 
+import javax.enterprise.context.ApplicationScoped;
 
 
+@ApplicationScoped
 public class EmpDb {
 
 	private static HashMap<Integer, Emp> db = new HashMap<>();
@@ -18,7 +20,9 @@ public class EmpDb {
 		EmpDb.db = db;
 	}
 
-	static {
+	public EmpDb(){
+		System.out.println("EmpDB created....");
+	//static {
 		db.put(100, new Emp(100, "Shantanu", "Hyderabad", 45000));
 		db.put(101, new Emp(101, "Pavan", "Hyderabad", 45000));
 		db.put(102, new Emp(102, "Arun", "Chennai", 45000));
