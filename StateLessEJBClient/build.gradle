@@ -1,0 +1,30 @@
+plugins {
+    id 'java'
+    id 'war'
+}
+
+group 'com.demo'
+version '1'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compileOnly 'javax.ws.rs:javax.ws.rs-api:2.1.1'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+tasks.register('deploy', Copy) {
+    from "$buildDir/libs/AddClient-1.war"
+    into "C:\\work\\tools\\wlp\\usr\\servers\\defaultServer\\dropins\\"
+}
+
+war {
+    baseName 'AddClient'
+}
