@@ -1,9 +1,8 @@
 package com.demo.jpa;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name="EMP")
@@ -13,11 +12,26 @@ public class Emp {
     private int empId;
 
     private String name;
-    @Column(name="ADDRESS")
 
+    @Column(name="ADDRESS")
     private String city;
 
+    @Embedded
+    Address address;
     private double salary;
+
+    @ElementCollection()
+    @CollectionTable(name="IMAGES",joinColumns = @JoinColumn(name="EMPNO"))
+    Set<String> images=new HashSet<>();
+    public Set<String> getImages() {
+        return images;
+    }
+
+    public void setImages(Set<String> images) {
+        this.images = images;
+    }
+
+
 
     public Emp() {
     }
@@ -59,6 +73,14 @@ public class Emp {
 
     public void setSalary(double salary) {
         this.salary = salary;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public void setAddress(Address address) {
+        this.address = address;
     }
 
     @Override
