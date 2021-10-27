@@ -1,7 +1,5 @@
 package com.demo.ejb3;
 
-import javax.annotation.PostConstruct;
-import javax.annotation.PreDestroy;
 import javax.ejb.Stateless;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -10,7 +8,7 @@ import javax.ws.rs.QueryParam;
 
 @Stateless
 @Path("math")
-public class AddBean implements AddRemote{
+public class AddBean /*implements AddRemote*/{
 
    // @PostConstruct
     public void init(){
