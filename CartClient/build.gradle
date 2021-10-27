@@ -1,0 +1,30 @@
+plugins {
+    id 'java'
+    id 'war'
+}
+
+group 'com.demo'
+version '1.0'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compileOnly 'javax:javaee-api:7.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+tasks.register('deploy', Copy) {
+    from "$buildDir/libs/cartClient.war"
+    into "C:\\work\\tools\\wlp\\usr\\servers\\defaultServer\\dropins\\"
+}
+
+war {
+    archiveName 'cartClient.war'
+}
