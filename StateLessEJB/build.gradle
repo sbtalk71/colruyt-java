@@ -19,6 +19,10 @@ test {
     useJUnitPlatform()
 }
 tasks.register('deploy', Copy) {
-    from "$buildDir/libs/StateLessEJB-1.jar"
-    into "C:\\work\\tools\\wlp\\usr\\servers\\defaultServer\\dropins\\"
+    from "$buildDir/libs/slsb.jar"
+    into "C:\\work\\tools\\wlp\\usr\\servers\\defaultServer\\apps\\"
+}
+
+jar{
+    archiveName 'slsb.jar'
 }

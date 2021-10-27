@@ -1,7 +1,9 @@
 package com.demo.ejb.client;
 
+import com.demo.ejb.loan.LoanRemote;
 import com.demo.ejb3.AddRemote;
 
+import javax.ejb.EJB;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.ws.rs.GET;
@@ -12,6 +14,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 @Path("client")
 public class AddClient {
+
     @Path("add")
     @GET
     @Produces(MediaType.TEXT_PLAIN)
@@ -27,5 +30,19 @@ public class AddClient {
             e.printStackTrace();
         }
         return Response.ok(result).build();
+    }
+
+    @GET
+    @Path("loan")
+    public Response loanClient(@QueryParam("amount") double amount){
+        String message="";
+        try {
+            InitialContext ctx= new InitialContext();
+            LoanRemote bank=(LoanRemote) ctx.lookup("com.demo.ejb.loan.LoanRemote");
+            message=bank.applyForLoan(amount);
+        } catch (NamingException e) {
+            e.printStackTrace();
+        }
+        return Response.ok(message).build();
     }
 }
