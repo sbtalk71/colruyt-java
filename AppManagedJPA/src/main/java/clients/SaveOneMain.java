@@ -13,7 +13,7 @@ public class SaveOneMain {
         EntityManager em=emf.createEntityManager();
         EntityTransaction tx = em.getTransaction();
         try{
-            Emp emp = new Emp(301,"Rakesh","Mumbai",90000);
+           Emp emp = new Emp(301,"Rakesh","Mumbai",90000);
             tx.begin();
             em.persist(emp);
             tx.commit();

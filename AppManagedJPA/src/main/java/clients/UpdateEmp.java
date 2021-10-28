@@ -14,7 +14,9 @@ public class UpdateEmp {
         EntityManager em=emf.createEntityManager();
         EntityTransaction tx = em.getTransaction();
         try{
+
             Emp emp = em.find(Emp.class,301);
+
 //            emp.getImages().add("Front.jpg");
 //            emp.getImages().add("Left.jpg");
             Address address= new Address("123","2nd Street","800009");

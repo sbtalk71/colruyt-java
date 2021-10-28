@@ -1,0 +1,20 @@
+<entity-mappings xmlns="http://xmlns.jcp.org/xml/ns/persistence/orm"
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence/orm
+      http://xmlns.jcp.org/xml/ns/persistence/orm_2_1.xsd"
+                 version="2.1">
+<named-query name="demo1">
+    <query>select e from Emp e where e.empId between 109 and 400</query>
+</named-query>
+    <named-query name="demo3">
+        <query>select e.name,e.salary from Emp e where e.empId between 109 and 400</query>
+    </named-query>
+
+    <named-query name="demo4">
+        <query>select new queries.Data(e.name,e.salary)from Emp e where e.empId between 109 and 400</query>
+    </named-query>
+
+    <named-native-query name="demoSQL1">
+        <query>select name,salary from MYEMP where name like '%Sh%'</query>
+    </named-native-query>
+</entity-mappings>
