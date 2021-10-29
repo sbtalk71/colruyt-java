@@ -1,0 +1,25 @@
+plugins {
+    id 'java'
+    id 'ear'
+}
+
+group 'com.demo'
+version '1'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    deploy project(path:':EmpEJB', configuration:'archives')
+    deploy project(path:':WebClient', configuration:'archives')
+    earlib project(":commonJars")
+
+    compileOnly 'javax:javaee-api:7.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+}
+
+test {
+    useJUnitPlatform()
+}
