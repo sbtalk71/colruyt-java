@@ -3,6 +3,7 @@ package com.demo.ejb;
 import com.demo.jpa.entity.Emp;
 
 import javax.ejb.*;
+import javax.enterprise.context.ApplicationScoped;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
@@ -18,6 +19,7 @@ public class EmpAppBean implements EmpApp{
     public String save(int id, String name, String city, double salary) throws EmpExistsException {
 
       try {
+          System.out.println(em);
           Emp e = em.find(Emp.class, id);
 
           if (e != null) {
