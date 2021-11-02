@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+    <!--
+        <bean id="greeter" class="com.demo.spring.Greeter">
+            <property name="message" value="Hello Spring"/>
+        </bean>
+
+        <bean id="greeter1" class="com.demo.spring.Greeter">
+            <constructor-arg value="Hello Spring"/>
+        </bean>
+ -->
+    <bean id="msg" class="com.demo.spring.HelloSpring"/>
+
+    <bean id="msg1" class="com.demo.spring.GoodMorning"/>
+
+    <bean id="greeter" class="com.demo.spring.Greeter" autowire="byType">
+<!--        <property name="message" ref="message"/>-->
+    </bean>
+
+    <util:list id="animalsList">
+        <value>Tiger</value>
+        <value>Lion</value>
+        <value>Deer</value>
+        <value>Fox</value>
+    </util:list>
+
+    <bean id="petLover" class="com.demo.spring.PetLover">
+        <property name="petList" ref="animalsList"/>
+    </bean>
+</beans>
