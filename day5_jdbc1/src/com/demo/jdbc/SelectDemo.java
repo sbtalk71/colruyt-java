@@ -11,7 +11,7 @@ public class SelectDemo {
         Connection conn=null;
 
         try {
-           // Class.forName("oracle.jdbc.OracleDriver");
+           Class.forName("oracle.jdbc.OracleDriver");
             conn= DriverManager.getConnection(JDBC_URL,USERNAME,PASSWORD);
 
             Statement stmt=conn.createStatement();
@@ -20,10 +20,10 @@ public class SelectDemo {
                 System.out.println(rs.getInt("EMPNO")+" "+rs.getString("NAME")+" "+rs.getString("ADDRESS")+" "+rs.getDouble("SALARY"));
             }
 
-        }/*catch (ClassNotFoundException e){
+        }catch (ClassNotFoundException e){
             System.out.println("Driver Not Found");
             e.printStackTrace();
-        }*/catch (SQLException e){
+        }catch (SQLException e){
             e.printStackTrace();
         }finally {
             try {

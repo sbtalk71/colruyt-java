@@ -1,0 +1,30 @@
+plugins {
+    id 'java'
+
+}
+
+group 'com.demo'
+version '1'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compileOnly 'javax:javaee-api:7.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+tasks.register('deploy', Copy) {
+    from "$buildDir/libs/schedular.jar"
+    into "C:\\work\\tools\\wlp\\usr\\servers\\defaultServer\\apps\\"
+}
+
+jar {
+    archiveName 'schedular.jar'
+}

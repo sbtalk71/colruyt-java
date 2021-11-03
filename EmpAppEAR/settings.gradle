@@ -1,0 +1,5 @@
+rootProject.name = 'EmpAppEAR'
+include 'EmpEJB'
+include 'WebClient'
+include 'commonJars'
+

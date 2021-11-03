@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<employees>
+    <employee doj="2009-10-20">
+        <emp-id type="permanent">100</emp-id>
+        <name>Shantanu</name>
+    </employee>
+</employees>
