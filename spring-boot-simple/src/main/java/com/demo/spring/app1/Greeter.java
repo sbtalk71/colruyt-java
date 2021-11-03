@@ -2,6 +2,7 @@ package com.demo.spring.app1;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -11,6 +12,9 @@ public class Greeter {
     @Autowired
    @Qualifier("helloSpring")
    private Message message;
+
+    @Value("${name}")
+    String name;
 
     public Greeter() {
         System.out.println("greeter created with no args constructor");
@@ -27,6 +31,6 @@ public class Greeter {
     }
 
     public String getGreeting(){
-        return message.getMessage();
+        return message.getMessage()+ " "+name;
     }
 }
