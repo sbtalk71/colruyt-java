@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration;
 import org.springframework.boot.autoconfigure.orm.jpa.JpaProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.EnableLoadTimeWeaving;
 import org.springframework.instrument.classloading.InstrumentationLoadTimeWeaver;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
@@ -23,6 +24,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Configuration
+
 public class JpaConfig extends JpaBaseConfiguration{
     protected JpaConfig(DataSource dataSource, JpaProperties properties,
                                      ObjectProvider<JtaTransactionManager> jtaTransactionManager) {
