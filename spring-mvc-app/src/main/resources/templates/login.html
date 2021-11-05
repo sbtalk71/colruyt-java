@@ -11,10 +11,12 @@
         <tr>
             <td>User Name</td>
             <td><input type="text" th:field="*{userName}"></td>
+            <td><span th:errors="*{userName}"></span></td>
         </tr>
         <tr>
             <td>Password</td>
             <td><input type="text" th:field="*{password}"></td>
+            <td><span th:errors="*{password}"></span></td>
         </tr>
         <tr>
             <td colspan="2" align="center"><input type="submit" value="Login"></td>
