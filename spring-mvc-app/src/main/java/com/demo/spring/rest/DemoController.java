@@ -11,13 +11,13 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Optional;
 
 @RestController
-public class DemoController {
+public class DemoController implements IDemo {
     @Autowired
     UserRepository repo;
 
-    @RequestMapping(path="/find/{name}",method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)
+  // @RequestMapping(path="/find/{name}",method = RequestMethod.GET,produces = MediaType.APPLICATION_JSON_VALUE)
 
-    public ResponseEntity findUser(@PathVariable("name") String userName){
+    public ResponseEntity findUser(/*@PathVariable("name") */String userName){
        Optional<User> empOpt=repo.findById(userName);
        if(empOpt.isPresent()){
            return ResponseEntity.ok(empOpt.get());

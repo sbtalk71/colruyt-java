@@ -1,0 +1,32 @@
+package com.demo.spring.controllers;
+
+import com.demo.spring.entity.Emp;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+
+@RequestMapping("emp")
+public interface EmpService {
+
+   // @RequestMapping(path="find/{id}",method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(path="find/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity findEmpById(@PathVariable("id") int id);
+
+    @PostMapping(path="save",consumes = MediaType.APPLICATION_JSON_VALUE,produces = MediaType.TEXT_PLAIN_VALUE)
+    public ResponseEntity<String> saveEmp(@RequestBody Emp e);
+
+    @DeleteMapping(path="delete",produces = MediaType.TEXT_PLAIN_VALUE)
+    public ResponseEntity<String> removeEmp(@RequestParam("id") int id);
+
+    @PutMapping(path="update",consumes = MediaType.APPLICATION_JSON_VALUE,produces = MediaType.TEXT_PLAIN_VALUE)
+    public ResponseEntity<String> updateEmp(@RequestBody Emp e);
+
+    public ResponseEntity<List<Emp>> listAll();
+
+    @GetMapping(path="info")
+    public ResponseEntity<String> info();
+
+}
