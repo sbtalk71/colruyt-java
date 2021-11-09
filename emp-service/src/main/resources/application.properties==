@@ -1,3 +1,4 @@
+server.port=8081
 spring.datasource.driver_class_name=oracle.jdbc.OracleDriver
 spring.datasource.url=jdbc:oracle:thin:@//localhost:1521/XE
 spring.datasource.username=system
@@ -5,3 +6,4 @@ spring.datasource.password=welcome1
 #spring.datasource.type=org.springframework.jdbc.datasource.DriverManagerDataSource
 
 spring.jpa.show_sql=true
+
