@@ -55,8 +55,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder builder) throws Exception{
         builder.ldapAuthentication()
-                .userDnPatterns("ou=users,dc=jboss,dc=com")
-                .userSearchFilter("uid={0}")
+                .contextSource()
+                .url("ldap://localhost:10389/dc=jboss,dc=com")
+                .managerDn("uid=admin,ou=system")
+                .managerPassword("secret")
+                .and()
+                .userDnPatterns("uid={0}")
+                .userSearchBase("ou=people,dc=jboss,dc=com")
                 .groupSearchBase("ou=roles,dc=jboss,dc=com")
                 .groupSearchFilter("uniqueMember={1}")
                 .groupRoleAttribute("cn")
