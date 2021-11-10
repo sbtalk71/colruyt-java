@@ -12,6 +12,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.LdapShaPasswordEncoder;
 
 import javax.sql.DataSource;
 
@@ -32,8 +33,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/services/**").authenticated()
                 .and()
                 .csrf().disable()
-                //.httpBasic();
-                .formLogin();
+                .httpBasic();
+               // .formLogin();
     }
 /*
     @Autowired
@@ -60,14 +61,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .managerDn("uid=admin,ou=system")
                 .managerPassword("secret")
                 .and()
-                .userDnPatterns("uid={0}")
-                .userSearchBase("ou=people,dc=jboss,dc=com")
-                .groupSearchBase("ou=roles,dc=jboss,dc=com")
-                .groupSearchFilter("uniqueMember={1}")
+                .userSearchBase("ou=users")
+                .userSearchFilter("uid={0}")
+                .groupSearchBase("ou=roles")
+                .groupSearchFilter("uniqueMember={0}")
                 .groupRoleAttribute("cn")
-                .passwordEncoder(encoder());
+                .passwordCompare()
+                .passwordEncoder(new LdapShaPasswordEncoder())
+                .passwordAttribute("userPassword");
         System.out.println("LDAP initialized...");
     }
+
 
     @Bean
     public BCryptPasswordEncoder encoder(){
