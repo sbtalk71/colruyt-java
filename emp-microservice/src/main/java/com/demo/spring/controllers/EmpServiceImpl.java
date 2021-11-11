@@ -21,11 +21,11 @@ public class EmpServiceImpl implements EmpService {
     @Override
     @Cacheable("cache1")
     public ResponseEntity findEmpById(int id)  throws EmpNotFoundException {
-        try {
+       /* try {
             Thread.sleep(20000);
         } catch (InterruptedException e) {
             e.printStackTrace();
-        }
+        }*/
         Optional<Emp> empOpt = repo.findById(id);
         if (empOpt.isPresent()) {
             return ResponseEntity.ok(empOpt.get());

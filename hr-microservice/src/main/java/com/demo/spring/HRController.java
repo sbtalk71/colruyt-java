@@ -1,5 +1,6 @@
 package com.demo.spring;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
@@ -14,7 +15,12 @@ public class HRController {
     RestTemplate rt;
 
     @GetMapping(path="/hr/get")
+    @HystrixCommand(fallbackMethod = "fallbackGetEmpDetails")
     public ResponseEntity<String> getEmpDetails(@RequestParam("id") int id){
         return rt.getForEntity("http://emp-service/emp/find/"+id,String.class);
+    }
+
+    public ResponseEntity<String> fallbackGetEmpDetails(int id){
+        return ResponseEntity.ok("Service is Down, try after sometime..");
     }
 }
