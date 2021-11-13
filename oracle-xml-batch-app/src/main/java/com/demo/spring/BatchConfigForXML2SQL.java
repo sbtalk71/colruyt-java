@@ -8,7 +8,6 @@ import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
 import org.springframework.batch.core.configuration.annotation.JobBuilderFactory;
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
-import org.springframework.batch.core.launch.JobLauncher;
 import org.springframework.batch.item.ItemProcessor;
 import org.springframework.batch.item.database.JdbcCursorItemReader;
 import org.springframework.batch.item.xml.StaxEventItemWriter;
@@ -26,8 +25,8 @@ import javax.sql.DataSource;
 @Configuration
 @ComponentScan(basePackages = "com.demo.spring")
 @EnableBatchProcessing
-@Profile("sql2xml")
-public class BatchConfig {
+@Profile("xml2sql")
+public class BatchConfigForXML2SQL {
     @Autowired
     JobBuilderFactory jobBuilderFactory;
 
@@ -40,11 +39,13 @@ public class BatchConfig {
     @Value("file:xml/employees.xml")
     Resource outputLocation;
 
+
     @Bean
     public Jaxb2Marshaller marshaller(){
         Jaxb2Marshaller marshaller=new Jaxb2Marshaller();
         marshaller.setClassesToBeBound(Emp.class);
         return  marshaller;
+
     }
 
     @Bean

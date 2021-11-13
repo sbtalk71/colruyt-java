@@ -45,15 +45,16 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }*/
 
 
-    /*@Autowired
+    @Autowired
     public void configureGlobal(AuthenticationManagerBuilder builder) throws Exception{
-        builder.jdbcAuthentication().dataSource(ds).withDefaultSchema();
+        builder.jdbcAuthentication().dataSource(ds);
+        System.out.println("jdbc done..");
 
              // .usersByUsernameQuery("select username,password,enabled from users where username=?")
               //.authoritiesByUsernameQuery("select username,authority from authorities where username=?");
-       }*/
+       }
 
-    @Autowired
+    /*@Autowired
     public void configureGlobal(AuthenticationManagerBuilder builder) throws Exception{
         builder.ldapAuthentication()
                 .contextSource()
@@ -71,7 +72,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .passwordAttribute("userPassword");
         System.out.println("LDAP initialized...");
     }
-
+*/
 
     @Bean
     public BCryptPasswordEncoder encoder(){
