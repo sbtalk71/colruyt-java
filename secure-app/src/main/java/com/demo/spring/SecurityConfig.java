@@ -22,6 +22,8 @@ import javax.sql.DataSource;
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     DataSource ds;
+    @Autowired
+    AuthenticationService authenticationService;
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -47,8 +49,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder builder) throws Exception{
-        builder.jdbcAuthentication().dataSource(ds);
-        System.out.println("jdbc done..");
+        builder.userDetailsService(authenticationService).passwordEncoder(encoder());
 
              // .usersByUsernameQuery("select username,password,enabled from users where username=?")
               //.authoritiesByUsernameQuery("select username,authority from authorities where username=?");
