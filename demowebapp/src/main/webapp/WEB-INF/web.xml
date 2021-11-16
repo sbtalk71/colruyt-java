@@ -4,24 +4,63 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
          http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
-<servlet>
-    <servlet-name>demo</servlet-name>
-    <servlet-class>com.demo.web.DemoServlet</servlet-class>
-</servlet>
+    <welcome-file-list>
+        <welcome-file>/demo.jsp</welcome-file>
+    </welcome-file-list>
+    <context-param>
+        <param-name>config</param-name>
+        <param-value>app.properties</param-value>
+    </context-param>
+    <filter>
+        <filter-name>country-filter</filter-name>
+        <filter-class>com.demo.web.MyDemoFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>country-filter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
     <servlet>
-        <servlet-name>http-demo</servlet-name>
-        <servlet-class>com.demo.web.MyHttpServlet</servlet-class>
+        <servlet-name>demo</servlet-name>
+        <servlet-class>com.demo.web.DemoServlet</servlet-class>
+        <init-param>
+            <param-name>driver</param-name>
+            <param-value>oracle.jdbc.OracleDriver</param-value>
+        </init-param>
     </servlet>
     <servlet-mapping>
         <servlet-name>demo</servlet-name>
         <url-pattern>/test</url-pattern>
         <url-pattern>/test2</url-pattern>
-
-
-        <!--/test -demo-com.demo.web.DemoServlet -->
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>http-demo</servlet-name>
+        <servlet-class>com.demo.web.MyHttpServlet</servlet-class>
+    </servlet>
+
     <servlet-mapping>
-    <servlet-name>http-demo</servlet-name>
-    <url-pattern>/httpDemo</url-pattern>
+        <servlet-name>http-demo</servlet-name>
+        <url-pattern>/httpDemo</url-pattern>
     </servlet-mapping>
+    <!--
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>All resources</web-resource-name>
+            <url-pattern>/*</url-pattern>
+            <http-method>GET</http-method>
+            <http-method>POST</http-method>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>tomcat</role-name>
+        </auth-constraint>
+    </security-constraint>
+
+    <login-config>
+        <auth-method>BASIC</auth-method>
+        <realm-name>java</realm-name>
+    </login-config>
+    <security-role>
+        <role-name>tomcat</role-name>
+    </security-role>
+    -->
 </web-app>

@@ -49,8 +49,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder builder) throws Exception{
-        builder.userDetailsService(authenticationService).passwordEncoder(encoder());
-
+       builder.userDetailsService(authenticationService).passwordEncoder(encoder());
+       // builder.jdbcAuthentication().dataSource(ds).passwordEncoder(encoder());
              // .usersByUsernameQuery("select username,password,enabled from users where username=?")
               //.authoritiesByUsernameQuery("select username,authority from authorities where username=?");
        }
