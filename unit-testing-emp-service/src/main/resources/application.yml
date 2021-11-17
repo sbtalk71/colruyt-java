@@ -1,0 +1,22 @@
+server:
+  port: 8081
+
+spring:
+  profiles:
+    active: testing
+  #datasource:
+   # driver_class_name: oracle.jdbc.OracleDriver
+    #url: jdbc:oracle:thin:@//localhost:1521/XE
+   # username: system
+   # password: welcome1
+  jpa:
+    show_sql: true
+
+ # cache:
+ #   ehcache:
+ #     config: "classpath:config/ehcache.xml"
+
+  cache:
+    cache-names: "cache1,cache2"
+    caffeine:
+      spec: "maximumSize=500,expireAfterAccess=600s"

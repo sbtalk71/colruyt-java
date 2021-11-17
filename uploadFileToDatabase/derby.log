@@ -1,0 +1,13 @@
+----------------------------------------------------------------
+Wed Nov 17 10:54:03 IST 2021:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-017d-2c5a-1b2e-00000b61e5c8 
+on database directory memory:C:\workspaces\java-colruyt2021\colruyt-java\uploadFileToDatabase\0df00263-19b7-4a43-9063-2740be2631e0 with class loader sun.misc.Launcher$AppClassLoader@73d16e93 
+Loaded from file:/C:/Users/shantanu/.gradle/caches/modules-2/files-2.1/org.apache.derby/derby/10.14.2.0/7efad40ef52fbb1f08142f07a83b42d29e47d8ce/derby-10.14.2.0.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_221-b11
+user.dir=C:\workspaces\java-colruyt2021\colruyt-java\uploadFileToDatabase
+os.name=Windows 10
+os.arch=amd64
+os.version=10.0
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
